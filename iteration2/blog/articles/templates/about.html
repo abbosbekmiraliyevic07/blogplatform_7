@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="topics" class="section is-medium grey-bg"></section>
+
+         <section id="join" class="section is-medium grey-bg">
+        {% if is_success %}
+            <div class="notification is-success is-size-3 has-text-centered">
+                <button class="delete"></button>
+                Ваша заявка принята! Спасибо!
+            </div>
+        {% endif %}
+        <div class="container">
+            <div class="has-text-centered">
+                <h1 class="title is-1">Запишитесь к нам на курсы</h1>
+                <h2 class="subtitle has-text-grey">
+                    Время стать лучше, запишитесь к нам на курсы прямо сейчас
+                </h2>
+            </div>
+            <br><br><br>
+            <div class="columns is-variable is-8 is-vcentered">
+                <div class="column">
+                    <img src="{% static 'images/join.svg' %}" alt="Join illustration">
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

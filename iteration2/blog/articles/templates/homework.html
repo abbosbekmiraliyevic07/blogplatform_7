@@ -1,0 +1,86 @@
+{#{% extends 'base.html' %}#}
+{#{% block content %}#}
+{##}
+{#    <section id="articles" class="section is-fullheight">#}
+{#        <h2 class="has-text-centered has-text-weight-bold is-size-2 mb-6">MOBILE#}
+{#            PHONES</h2>#}
+{#        <div class="container">#}
+{#            <div class="columns">#}
+{#                {% for article in articles %}#}
+{#                <div class="column article">#}
+{#                    <div class="card">#}
+{#                    </div>#}
+{#                    <div class="card-content">#}
+{#                        <div class="media">#}
+{#                            <div class="media-content has-text-centered">#}
+{#                                <p class="title is-4">{{article.title}}</p>#}
+{#                            </div>#}
+{##}
+{#                        </div>#}
+{#                        <div class="content">{{ article.text }}</div>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            {% endfor %}#}
+{#              </div>#}
+{#            </div>#}
+{##}
+{#    </section>#}
+{##}
+{#{% endblock %}#}
+
+{#{% load static %}#}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#      <head>#}
+{#          <meta charset="UTF-8">#}
+{#          <title>Title</title>#}
+{#          <link rel="stylesheet" href="{% static 'bulma.css' %}">#}
+{#          <link rel="stylesheet" href="{% static 'style.css' %}">#}
+{#      </head>#}
+{#<body>#}
+{#<ol>#}
+{#   {% for article in articles %}#}
+{#    <li>#}
+{#    {{ article }}#}
+{#    </li>#}
+{#   {% endfor %}#}
+{##}
+{#</ol>#}
+{#</body>#}
+{##}
+{#</html>#}
+
+
+
+{% extends "base.html" %}
+{% block  content %}
+<div class="container">
+            <div class="columns is-centered">
+                {% for article in articles %}
+                    <div class="column is-3">
+
+                    <a href="{% url 'articles:detail' article.slug %}">
+
+                        <div class="card has-text-centered">
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-content">
+                                        <p class="title has-text-dark is-2">
+                                            {{ article }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="content ">
+                                    {{ article.snippet }}
+                                    <br>
+                                    <div>{{ article.date }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}
